@@ -16,11 +16,11 @@
         <label>Price:</label><br/>
         <input type="number" name="price"/><br/>
         <label>Image:</label><br/>
-        <input type="file" name="image"/><br/><br>
+        <input type="url" name="image"/><br/><br>
 
-        <select name="catigory_id" id="">
+        <select name="category_id" id="">
             {% for category in categories %}
-                <option value="catigory.id">{{ category.name }}</option>
+                <option value="{{ category.id }}">{{ category.name }}</option>
             {% endfor %}
         </select><br><br>
 
