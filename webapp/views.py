@@ -16,11 +16,31 @@ def categories_add(request):
         name = request.POST.get('name')
         content = request.POST.get('content')
         category = Category.objects.create(name=name, content=content)
-        return redirect('index')
+        return redirect('categories_view')
     else:
         categories = Category.objects.all()
         return render(request, 'categories_add.html', {'categories': categories})
 
+def categories_view(request):
+    categories = Category.objects.all()
+    return render(request, 'categories_view.html', {'categories': categories})
+
+
+def category_edit_view(request, pk):
+    category = get_object_or_404(Category, pk=pk)
+    if request.method == "POST":
+        category.name = request.POST.get('name')
+        category.content = request.POST.get('content')
+        category.save()
+        return redirect('categories_view')
+    else:
+        return render(request, 'category_edit.html', {'category': category})
+
+
+def category_delete(request, pk):
+    category = get_object_or_404(Category, pk=pk)
+    category.delete()
+    return redirect('categories_view')
 def products_add(request):
     if request.method == "POST":
         title = request.POST.get('title')

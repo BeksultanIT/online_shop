@@ -6,8 +6,7 @@ from webapp.models import Product, Category
 admin.site.register(Category)
 
 class ProductAdmin(admin.ModelAdmin):
-    class ProductAdmin(admin.ModelAdmin):
-        list_display = ('id', 'title', 'price', 'category', 'created_at')
+    list_display = ('id', 'title', 'price', 'category', 'created_at')
 
 
 admin.site.register(Product, ProductAdmin)

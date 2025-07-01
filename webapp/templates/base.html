@@ -30,6 +30,9 @@
                                 products</a>
                         </li>
                     {% endblock %}
+                <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'categories_view' %}">Categories</a>
+                    </li>
                     {% block nav2 %}
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="{% url 'categories_add' %}">Add
