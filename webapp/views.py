@@ -45,7 +45,6 @@ def products_add(request):
     if request.method == "POST":
         title = request.POST.get('title')
         description = request.POST.get('description')
-        # category = request.POST.get('category')
         price = request.POST.get('price')
         image = request.POST.get('image')
         category_id = request.POST.get('category_id')
@@ -58,6 +57,26 @@ def products_add(request):
 def product_details (request, *args, pk, **kwargs ):
     product = get_object_or_404(Product, pk=pk)
     return render(request, 'product_details.html', {"product": product})
+
+def product_edit_view(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    if request.method == "POST":
+        product.title = request.POST.get('title')
+        product.description = request.POST.get('description')
+        product.price = request.POST.get('price')
+        product.image = request.POST.get('image')
+        product.category_id = request.POST.get('category_id')
+        product.save()
+        return redirect('product_details', pk=product.pk)
+    else:
+        categories = Category.objects.all()
+        return render(request, 'product_edit.html', {'product': product, 'categories': categories})
+
+
+def product_delete(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    product.delete()
+    return redirect('index')
 
 
 

@@ -18,6 +18,11 @@
                         <p class="card-text">{{ product.description }}</p>
                         <p class="card-text"><strong>Цена: {{ product.price }} $</strong></p>
                         <p class="card-text"><small class="text-muted">{{ product.created_at }}</small></p>
+                      <div class="btn-group mb-3" role="group">
+                            <a href="{% url 'product_edit' product.pk %}" class="btn btn-warning">Редактировать</a>
+                            <a href="{% url 'product_delete' product.pk %}" class="btn btn-danger"
+                               onclick="return confirm('Вы уверены, что хотите удалить этот товар?')">Удалить</a>
+                        </div>
                     </div>
                 </div>
             </div>
