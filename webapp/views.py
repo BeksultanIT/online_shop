@@ -28,11 +28,12 @@ def products_add(request):
         category = request.POST.get('category')
         price = request.POST.get('price')
         image = request.POST.get('image')
-        product = Product.objects.create(title=title, price=price, image=image, category=category, description=description)
+        category_id = request.POST.get('content')
+        product = Product.objects.create(title=title, price=price, image=image, category=category, description=description, category_id=category_id)
         return redirect('product_details', pk=product.pk)
     else:
-        products = Product.objects.all()
-        return render(request, 'products_add.html', {'products': products})
+        categories = Category.objects.all()
+        return render(request, 'products_add.html', {'categories': categories})
 
 def product_details (request, *args, pk, **kwargs ):
     product = get_object_or_404(Product, pk=pk)

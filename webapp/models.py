@@ -10,7 +10,7 @@ class Category(models.Model):
         return f"{self.id} - {self.name}"
 
     class Meta:
-        db_table = 'category_db'
+        db_table = 'categories'
         verbose_name = 'Категория'
         verbose_name_plural = "Категории"
 
@@ -26,6 +26,6 @@ class Product(models.Model):
         return f"{self.id} - {self.title}"
 
     class Meta:
-        db_table = 'product_db'
+        db_table = 'products'
         verbose_name = 'Продукт'
         verbose_name_plural = "Продукты"
