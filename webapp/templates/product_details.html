@@ -4,16 +4,24 @@
 {% endblock %}
 
 {% block content %}
-    <div class="article">
-        <div class="col-md-4">
-            <img src="{{ product.image }}" class="img-fluid rounded-start" alt="...">
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{{ product.image }}" class="img-fluid rounded-start h-100" alt="..." style="object-fit: cover;">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.title }}</h5>
+                        <p class="card-text"><strong>Компания:</strong> {{ product.category.name }}</p>
+                        <p class="card-text">{{ product.description }}</p>
+                        <p class="card-text"><strong>Цена: {{ product.price }} $</strong></p>
+                        <p class="card-text"><small class="text-muted">{{ product.created_at }}</small></p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <h1>Название - {{ product.title }}</h1>
-        <p>Компания - {{ product.category }}</p>
-        <p>Описание - {{ product.description }}</p>
-        <p>Цена - {{ product.price }} $</p>
-        <p>Дата создания - {{ product.created_at }}</p>
-
-        <hr/>
     </div>
+</div>
 {% endblock %}
