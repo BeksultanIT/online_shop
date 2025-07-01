@@ -67,5 +67,17 @@ Tracking file by folder pattern:  migrations
     "price": "100000.00",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/2021_BMW_M5_CS_F90.jpg/2560px-2021_BMW_M5_CS_F90.jpg"
   }
+},
+{
+  "model": "webapp.product",
+  "pk": 13,
+  "fields": {
+    "title": "Mustang",
+    "description": "2022  cabriolet S650",
+    "category": 6,
+    "created_at": "2025-07-01T10:39:40.832Z",
+    "price": "60000.00",
+    "image": "https://s.auto.drom.ru/i24276/c/photos/fullsize/ford/mustang/ford_mustang_1107342.jpg"
+  }
 }
 ]
