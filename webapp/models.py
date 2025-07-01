@@ -11,8 +11,8 @@ class Category(models.Model):
 
     class Meta:
         db_table = 'category_db'
-        verbose_name = 'Статья'
-        verbose_name_plural = "Статьи"
+        verbose_name = 'Категория'
+        verbose_name_plural = "Категории"
 
 class Product(models.Model):
     title = models.CharField(max_length=50,verbose_name='Название', null=False, blank=False)
@@ -27,5 +27,5 @@ class Product(models.Model):
 
     class Meta:
         db_table = 'product_db'
-        verbose_name = 'Статья'
-        verbose_name_plural = "Статьи"
+        verbose_name = 'Продукт'
+        verbose_name_plural = "Продукты"
