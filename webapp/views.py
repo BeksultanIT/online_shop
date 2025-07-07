@@ -1,13 +1,18 @@
 from django.shortcuts import render, redirect, get_object_or_404
 
-from webapp.forms import ProductForm
+from webapp.forms import ProductForm, SearchForm
 from webapp.models import Product, Category
 
 
 # Create your views here.
 def index(request):
+    form = SearchForm(request.GET or None)
     products = Product.objects.order_by('category', 'title').filter(remaining__gt=1)
-    return render(request, 'index.html', {"products" : products})
+    if form.is_valid():
+        search = form.cleaned_data.get('search')
+        if search:
+            products = products.filter(title__icontains=search)
+    return render(request, 'index.html', {"products" : products, "form" : form})
 
 
 def categories_add(request):
