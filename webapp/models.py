@@ -19,7 +19,7 @@ class Product(models.Model):
     description = models.TextField(verbose_name='Описание', null=True, blank=True)
     category  = models.ForeignKey('webapp.Category', on_delete=models.RESTRICT, verbose_name='Категория', related_name='products', null=False, blank=False)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
-    price = models.DecimalField(decimal_places=2, max_digits=10, verbose_name='Цена', null=False, blank=False)
+    price = models.DecimalField(decimal_places=2, max_digits=7, verbose_name='Цена', null=False, blank=False)
     image = models.URLField(verbose_name='Фото', null=False, blank=False)
 
     def __str__(self):

@@ -40,7 +40,7 @@
     "description": "70, 3.5, 2023",
     "category": 1,
     "created_at": "2025-07-01T01:20:24.892Z",
-    "price": "35000.00",
+    "price": "3500.00",
     "image": "https://upload.wikimedia.org/wikipedia/commons/f/fd/2025_Toyota_Camry_Hybrid_XSE_%28United_States%29_front_view.png"
   }
 },
@@ -52,7 +52,7 @@
     "description": "2021 3.0",
     "category": 2,
     "created_at": "2025-07-01T08:17:55.074Z",
-    "price": "20000.00",
+    "price": "2000.00",
     "image": "https://s.auto.drom.ru/i24274/c/photos/generations/500x_kia_k7_g16589.jpg?1099487"
   }
 },
@@ -64,7 +64,7 @@
     "description": "2021, 4.4",
     "category": 3,
     "created_at": "2025-07-01T08:59:00.342Z",
-    "price": "100000.00",
+    "price": "9000.00",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/2021_BMW_M5_CS_F90.jpg/2560px-2021_BMW_M5_CS_F90.jpg"
   }
 },
@@ -76,7 +76,7 @@
     "description": "2022  cabriolet S650",
     "category": 6,
     "created_at": "2025-07-01T10:39:40.832Z",
-    "price": "60000.00",
+    "price": "6000.00",
     "image": "https://s.auto.drom.ru/i24276/c/photos/fullsize/ford/mustang/ford_mustang_1107342.jpg"
   }
 }

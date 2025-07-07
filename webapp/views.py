@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 
+from webapp.forms import ProductForm
 from webapp.models import Product, Category
 
 
@@ -41,16 +42,15 @@ def category_delete(request, pk):
     return redirect('categories_view')
 def products_add(request):
     if request.method == "POST":
-        title = request.POST.get('title')
-        description = request.POST.get('description')
-        price = request.POST.get('price')
-        image = request.POST.get('image')
-        category_id = request.POST.get('category_id')
-        product = Product.objects.create(title=title, price=price, image=image, description=description, category_id=category_id)
-        return redirect('product_details', pk=product.pk)
+        form = ProductForm(request.POST)
+        if form.is_valid():
+            product = form.save()
+            return redirect('product_details', pk=product.pk)
+        else:
+            return render(request, 'products_add.html', {'form': form})
     else:
-        categories = Category.objects.all()
-        return render(request, 'products_add.html', {'categories': categories})
+        form = ProductForm()
+        return render(request, 'products_add.html', {'form': form})
 
 def product_details (request, *args, pk, **kwargs ):
     product = get_object_or_404(Product, pk=pk)
@@ -59,16 +59,15 @@ def product_details (request, *args, pk, **kwargs ):
 def product_edit_view(request, pk):
     product = get_object_or_404(Product, pk=pk)
     if request.method == "POST":
-        product.title = request.POST.get('title')
-        product.description = request.POST.get('description')
-        product.price = request.POST.get('price')
-        product.image = request.POST.get('image')
-        product.category_id = request.POST.get('category_id')
-        product.save()
-        return redirect('product_details', pk=product.pk)
+        form = ProductForm(request.POST, instance=product)
+        if form.is_valid():
+            product= form.save()
+            return redirect('product_details', pk=product.pk)
+        else:
+            return render(request, 'product_edit.html', {'form': form})
     else:
-        categories = Category.objects.all()
-        return render(request, 'product_edit.html', {'product': product, 'categories': categories})
+        form = ProductForm(instance=product)
+        return render(request, 'product_edit.html', {'form': form})
 
 
 def product_delete(request, pk):

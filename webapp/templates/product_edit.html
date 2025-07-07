@@ -4,49 +4,8 @@
 {% endblock %}
 
 {% block content %}
-<div class="row justify-content-center">
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-header">
-                <h3>Редактировать товар</h3>
-            </div>
-            <div class="card-body">
-                <form action="" method="post">
-                    {% csrf_token %}
-                    <div class="mb-3">
-                        <label for="title" class="form-label">Title:</label>
-                        <input type="text" class="form-control" id="title" name="title" value="{{ product.title }}" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="description" class="form-label">Text:</label>
-                        <textarea class="form-control" id="description" name="description" rows="3">{{ product.description }}</textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="price" class="form-label">Price:</label>
-                        <input type="number" class="form-control" id="price" name="price" value="{{ product.price }}" step="0.01" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="image" class="form-label">Image:</label>
-                        <input type="url" class="form-control" id="image" name="image" value="{{ product.image }}">
-                    </div>
-                    <div class="mb-3">
-                        <label for="category" class="form-label">Category:</label>
-                        <select name="category_id" id="category" class="form-select" required>
-                            <option value="">Choose category</option>
-                            {% for category in categories %}
-                                <option value="{{ category.id }}" {% if category.id == product.category.id %}selected{% endif %}>
-                                    {{ category.name }}
-                                </option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                    <div class="btn-group" role="group">
-                        <button type="submit" class="btn btn-primary">Сохранить</button>
-                        <a href="{% url 'product_details' product.pk %}" class="btn btn-secondary">Отмена</a>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+    <h1>Update Article</h1>
+    <form action="" method="post" class="w-50 ms-auto me-auto">
+        {% include 'partial/products_form.html' with button_text='Update' %}
+    </form>
 {% endblock %}
