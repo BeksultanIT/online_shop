@@ -4,7 +4,8 @@
   "pk": 1,
   "fields": {
     "name": "Toyota",
-    "content": "Japan"
+    "content": "Japan",
+    "slug": "Toyota"
   }
 },
 {
@@ -12,7 +13,8 @@
   "pk": 2,
   "fields": {
     "name": "KIA",
-    "content": "Korea"
+    "content": "Korea",
+    "slug": "KIA"
   }
 },
 {
@@ -20,7 +22,8 @@
   "pk": 3,
   "fields": {
     "name": "BMW",
-    "content": "Germany"
+    "content": "Germany",
+    "slug": "BMW"
   }
 },
 {
@@ -28,7 +31,8 @@
   "pk": 6,
   "fields": {
     "name": "Ford",
-    "content": "America"
+    "content": "America",
+    "slug": "Ford"
   }
 },
 {
@@ -36,7 +40,8 @@
   "pk": 7,
   "fields": {
     "name": "Mercedes-Benz",
-    "content": "Germany"
+    "content": "Germany",
+    "slug": "Mercedes"
   }
 },
 {
@@ -49,7 +54,8 @@
     "created_at": "2025-07-01T01:20:24.892Z",
     "price": "3500.00",
     "image": "https://di-uploads-pod7.dealerinspire.com/toyotachulavista/uploads/2024/09/2025-toyota-camry-front.png",
-    "remaining": 5
+    "remaining": 5,
+    "slug": "camry"
   }
 },
 {
@@ -62,7 +68,8 @@
     "created_at": "2025-07-01T08:17:55.074Z",
     "price": "2000.00",
     "image": "https://s.auto.drom.ru/i24274/c/photos/generations/500x_kia_k7_g16589.jpg?1099487",
-    "remaining": 0
+    "remaining": 0,
+    "slug": "k7"
   }
 },
 {
@@ -75,7 +82,8 @@
     "created_at": "2025-07-01T08:59:00.342Z",
     "price": "9000.00",
     "image": "https://www.bmw-m.com/content/dam/bmw/marketBMW_M/www_bmw-m_com/topics/magazine-article-pool/2017/bmw-m5-f90/bmw-m5-f90-cs-gal-31.jpg",
-    "remaining": 4
+    "remaining": 4,
+    "slug": "m5-f90-competition"
   }
 },
 {
@@ -88,7 +96,8 @@
     "created_at": "2025-07-01T10:39:40.832Z",
     "price": "6000.00",
     "image": "https://s.auto.drom.ru/i24276/c/photos/fullsize/ford/mustang/ford_mustang_1107342.jpg",
-    "remaining": 3
+    "remaining": 3,
+    "slug": "mustang"
   }
 },
 {
@@ -101,7 +110,8 @@
     "created_at": "2025-07-07T19:31:28.706Z",
     "price": "99999.00",
     "image": "https://www.allcarz.ru/wp-content/uploads/2024/03/foto-g-class-2025_01.jpg",
-    "remaining": 2
+    "remaining": 2,
+    "slug": "gelandewagen"
   }
 },
 {
@@ -114,20 +124,22 @@
     "created_at": "2025-07-07T19:56:42.911Z",
     "price": "5000.00",
     "image": "https://toyotacanada.scene7.com/is/image/toyotacanada/2024_Toyota_Prius_Limited-5?ts=1736203291064&dpr=off",
-    "remaining": 9
+    "remaining": 9,
+    "slug": "prius"
   }
 },
 {
   "model": "webapp.product",
-  "pk": 16,
+  "pk": 17,
   "fields": {
-    "title": "Mustang",
-    "description": "2025 5.0 V8",
+    "title": "Mondeo",
+    "description": "2025 2.0",
     "category": 6,
-    "created_at": "2025-07-07T20:06:14.804Z",
-    "price": "6000.00",
-    "image": "https://hips.hearstapps.com/hmg-prod/images/2025-ford-mustang-60th-anniversary-exterior-66227932bb88e.jpg?crop=0.793xw:1.00xh;0.106xw,0&resize=1200:*",
-    "remaining": 3
+    "created_at": "2025-07-07T21:23:19.097Z",
+    "price": "2000.00",
+    "image": "https://www.ixbt.com/img/x780/n1/news/2024/8/6/1488x0_1_autohomecar__ChxkPmZZ29CAByz5ACV2dpYm2_k326_large.jpg",
+    "remaining": 4,
+    "slug": "mondeo"
   }
 }
 ]

@@ -8,11 +8,12 @@ from webapp.models import Product, Category
 def index(request):
     form = SearchForm(request.GET or None)
     products = Product.objects.order_by('category', 'title').filter(remaining__gt=1)
+    categories = Category.objects.all()
     if form.is_valid():
         search = form.cleaned_data.get('search')
         if search:
             products = products.filter(title__icontains=search)
-    return render(request, 'index.html', {"products" : products, "form" : form})
+    return render(request, 'index.html', {"products" : products, "form" : form, "categories": categories})
 
 
 def categories_add(request):
@@ -57,9 +58,7 @@ def products_add(request):
         form = ProductForm()
         return render(request, 'products_add.html', {'form': form})
 
-def product_details (request, *args, pk, **kwargs ):
-    product = get_object_or_404(Product, pk=pk)
-    return render(request, 'product_details.html', {"product": product})
+
 
 def product_edit_view(request, pk):
     product = get_object_or_404(Product, pk=pk)
@@ -79,6 +78,20 @@ def product_delete(request, pk):
     product = get_object_or_404(Product, pk=pk)
     product.delete()
     return redirect('index')
+
+def product_details (request, *args, pk, **kwargs ):
+    product = get_object_or_404(Product, pk=pk)
+    return render(request, 'product_details.html', {"product": product})
+def products_category(request,  *args, slug, **kwargs ):
+    category = get_object_or_404(Category, slug=slug)
+    products = Product.objects.filter(category=category, remaining__gt=0).order_by('title')
+
+    form = SearchForm(request.GET or None)
+    if form.is_valid():
+        search = form.cleaned_data.get('search')
+        if search:
+            products = products.filter(title__icontains=search)
+    return render(request, 'products_category.html', {'category': category, 'products': products, 'form': form})
 
 
 

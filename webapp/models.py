@@ -1,11 +1,19 @@
 from django.core.validators import MinValueValidator
 from django.db import models
+from django.utils.text import slugify
+
 
 # Create your models here.
 
 class Category(models.Model):
     name = models.CharField(max_length=50, unique=True, verbose_name='Имя')
     content = models.TextField(verbose_name='Контент')
+    slug = models.SlugField(max_length=100, unique=True, verbose_name='Слаг', null=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.id} - {self.name}"
@@ -23,6 +31,13 @@ class Product(models.Model):
     price = models.DecimalField(decimal_places=2, max_digits=7, verbose_name='Цена', null=False, blank=False)
     image = models.URLField(verbose_name='Фото', null=False, blank=False)
     remaining = models.IntegerField(verbose_name='Остаток', null=False, blank=False, validators=[MinValueValidator(0)], default=1)
+    slug = models.SlugField(verbose_name='Слаг', max_length=100, null=True, blank=True)
+
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.id} - {self.title}"
