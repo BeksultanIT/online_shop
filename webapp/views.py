@@ -6,7 +6,7 @@ from webapp.models import Product, Category
 
 # Create your views here.
 def index(request):
-    products = Product.objects.order_by('-id')
+    products = Product.objects.order_by('category', 'title').filter(remaining__gt=1)
     return render(request, 'index.html', {"products" : products})
 
 
